@@ -1,0 +1,28 @@
+// Queue Operations 
+class Geeks{
+    
+    // Function to insert element into the queue
+    static void insert(Queue<Integer> q, int k){
+        
+        // Your code here
+        q.offer(k);
+    }
+    
+    // Function to find frequency of an element
+    // rteturn the frequency of k
+    static int findFrequency(Queue<Integer> q, int k){
+        
+        // Your code here
+        if(!q.contains(k))
+        return -1;
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int n = q.size();
+        for(int i=0; i<n; i++){
+            int val = q.poll();
+            map.put(val,map.getOrDefault(val, 0)+1);
+            q.offer(val);
+        }
+        return map.get(k);
+    }
+    
+}
