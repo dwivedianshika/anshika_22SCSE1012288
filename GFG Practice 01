@@ -1,0 +1,26 @@
+//Height of Binary Tree
+class Solution {
+    //Function to find the height of a binary tree.
+    int height(Node node) 
+    {
+        // code here 
+        if(node == null)
+        {
+            return 0;
+        }
+        else
+        {
+          int h1 = height(node.left);
+          int h2 = height(node.right);
+        
+          if(h1>h2)
+          {
+            return (h1+1);
+          }
+          else
+          {
+            return (h2+1);
+          }
+        }
+    }
+}
