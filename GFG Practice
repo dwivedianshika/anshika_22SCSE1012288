@@ -1,0 +1,14 @@
+// Node at a given index in a linked list 
+class Solution {
+    public int GetNth(Node head, int index) {
+        // code here
+        int i = 1;
+        Node temp = head;
+        while(temp!=null){
+            if(i==index) return temp.data;
+            temp = temp.next;
+            i++;
+        }
+        return -1;
+    }
+}
