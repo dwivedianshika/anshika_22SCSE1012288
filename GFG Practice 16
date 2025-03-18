@@ -1,0 +1,20 @@
+// Diameter of a Binary Tree
+class Solution {
+    // Function to return the diameter of a Binary Tree.
+    int dia;
+    int diameter(Node root) {
+        // Your code here
+        height(root);
+        return dia;
+    }
+    int height(Node root){
+        if(root==null)     return 0;
+        
+        int left = height(root.left);
+        int right = height(root.right);
+        int res = left+right+1;
+         dia = Math.max(dia, res);
+         return Math.max(left, right)+1;
+        
+    }
+}
