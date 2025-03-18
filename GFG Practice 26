@@ -1,0 +1,38 @@
+// First negative in every window of size k
+class Compute {
+    
+    public long[] printFirstNegativeInteger(long A[], int N, int K)
+    {
+      Deque<Long> dq = new ArrayDeque<>();
+        long[] res = new long[N-K+1];
+        int m =0; 
+        
+        for(int i =0; i<K; i++){
+             if(A[i] < 0){
+                 dq.addLast(A[i]);
+             }
+        }
+        if(!dq.isEmpty()){
+            res[m++] = dq.peekFirst();
+        }else{
+            res[m++] = 0;
+        }
+        
+        for(int i= K ; i<N; i++){
+            
+            if(!dq.isEmpty() && dq.peekFirst() == A[i -K]){
+                dq.removeFirst();
+            }
+            
+            if(A[i] < 0){
+                dq.addLast(A[i]);
+            }
+            if(!dq.isEmpty()){
+                res[m++] = dq.peekFirst();
+            }else{
+                res[m++] = 0;
+            }
+        }
+        return res;
+    }
+}
