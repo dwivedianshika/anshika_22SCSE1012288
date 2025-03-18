@@ -1,0 +1,37 @@
+// Pair Sum in BST
+class Solution
+{
+    // root : the root Node of the given BST
+    // target : the target sum
+    public int isPairPresent(Node root, int target)
+    {
+        // Write your code here
+        List<Integer> arr = new ArrayList<Integer>();
+        inorder_print(root, arr);
+        int left = 0;
+        int right = arr.size() - 1;
+        while(left<right){
+            int sum = arr.get(left) + arr.get(right);
+            
+            if(sum == target){
+                return 1;
+            }
+            else if(sum<target){
+                left++;
+            }
+            else{
+                right--;
+            }
+        }
+        return 0;
+        
+    }
+    void inorder_print(Node root, List<Integer> arr){
+        if(root==null){
+            return;
+        }
+        inorder_print(root.left, arr);
+        arr.add(root.data);
+        inorder_print(root.right, arr);
+    }
+}
